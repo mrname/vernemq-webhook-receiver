@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Django specific
+db.sqlite3
+
+# Docker specific
+postgres_data/

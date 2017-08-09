@@ -1,0 +1,19 @@
+version: '2'
+services:
+  db:
+    restart: always
+    image: postgres
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+  api:
+    restart: always
+    build: .
+    command: bash docker_entrypoint.sh
+    volumes:
+      - .:/src
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+volumes:
+  postgres_data:
